@@ -1,0 +1,14 @@
+<h2>All Products</h2>
+
+<% @products.each do |product| %>
+  <div class="product">
+    <h2><%= link_to product.name, product%></h2>
+    
+    <p><strong>Price:</strong> <%= number_to_currency product.price %></p>
+    
+    <div><%= product.description %></div>
+  </div>
+<% end %>
+
+
+
