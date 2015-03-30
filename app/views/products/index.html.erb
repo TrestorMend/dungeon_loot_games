@@ -7,6 +7,10 @@
     <p><strong>Price:</strong> <%= number_to_currency product.price %></p>
     
     <div><%= product.description %></div>
+    
+    <% if product.image.present? %>
+      <p><%= image_tag product.image.large.url %></p>
+    <% end %>
   </div>
 <% end %>
 
