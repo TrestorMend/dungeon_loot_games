@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  validates :description, presence: true
+  validates :name, presence: true
   
   has_many :products
 end
