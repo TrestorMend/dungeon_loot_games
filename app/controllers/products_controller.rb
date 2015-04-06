@@ -6,10 +6,11 @@ class ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
-    @categorys = Category.all
+    @categories = Category.all
   end
   
   def category
+    @categories = Category.all
     @products = Product.where("category_id == " + params[:id].to_s)
   end
 end

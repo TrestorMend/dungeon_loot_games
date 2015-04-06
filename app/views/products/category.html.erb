@@ -1,3 +1,11 @@
+<nav>
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= link_to category.name, category_path(category) %></li>
+    <% end %>
+  </ul>
+</nav>
+
 <% @products.each do |product| %>
   <div class="product">
     <h2><%= link_to product.name, product%></h2>
