@@ -6,5 +6,5 @@ class ApplicationController < ActionController::Base
   def category
     @categories = Category.all
     @products = Product.where("category_id == " + params[:id].to_s)
-  end
+  end  
 end
