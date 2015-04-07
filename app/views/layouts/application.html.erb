@@ -21,6 +21,14 @@
       <% end %>
     </ul>
   </nav>
+  
+  <h2>Product Search</h2>
+
+  <%= form_tag search_results_path do %>
+    <%= text_field_tag :keywords %>  
+    <%= collection_select :post, :category_id, @categories, :id, :name, prompt: "Please select a category" %>  
+    <%= submit_tag 'Search' %>
+  <% end %>
 
 <%= yield %>
 

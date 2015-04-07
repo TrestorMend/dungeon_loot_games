@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/:id' => 'products#show', as: 'product',  id: /\d+/
   get '/category/:id' => 'products#category', as: 'category',  id: /\d+/
   get '/pages/:title' => 'page#show', as: 'page'
-  post 'search_results' => 'products#search_results', :as => 'search_results'
+  match 'search_results' => 'products#search_results',
+        :as => 'search_results', :via => :post
 end

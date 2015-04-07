@@ -10,7 +10,11 @@ class ProductsController < ApplicationController
   end
   
   def search_results
-    @products = Product.where("name LIKE ?", "%#{params[:keywords]}%")
+    if params[:post]["category_id"] == ""
+      @products = Product.where("name LIKE ?", "%#{params[:keywords]}%")    
+    else
+      @products = Product.where("name LIKE ?", "%#{params[:keywords]}%").where("category_id == #{params[:post]["category_id"]}")
+    end
     @categories = Category.all
   end
 end
