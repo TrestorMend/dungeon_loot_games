@@ -8,4 +8,9 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @categories = Category.all
   end
+  
+  def search_results
+    @products = Product.where("name LIKE ?", "%#{params[:keywords]}%")
+    @categories = Category.all
+  end
 end
