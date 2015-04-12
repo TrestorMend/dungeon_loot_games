@@ -1,16 +1,6 @@
 <h2>All Products</h2>
 
-<% @products.each do |product| %>
-  <div class="product">
-    <h2><%= link_to product.name, product%></h2>
-    
-    <% if product.image.present? %>
-      <p><%= image_tag product.image.medium.url %></p>
-    <% end %>
-    
-    <p><strong>Price:</strong> <%= number_to_currency product.price %></p> 
-  </div>
-<% end %>
+<%= render @products %>
 
 
 
