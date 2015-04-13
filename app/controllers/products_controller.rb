@@ -17,4 +17,8 @@ class ProductsController < ApplicationController
     end
     @categories = Category.all
   end
+  
+  def shopping_cart
+    #code
+  end
 end

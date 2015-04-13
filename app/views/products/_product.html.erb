@@ -5,5 +5,10 @@
     <p><%= image_tag product.image.medium.url %></p>
   <% end %>
   
-  <p><strong>Price:</strong> <%= number_to_currency product.price %></p> 
+  <p><strong>Price:</strong> <%= number_to_currency product.price %></p>
+  
+  <form method="post" action="/shopping_cart">
+    <input name="id" type="hidden" value="<%product.id%>"/>
+    <button type="submit">Buy it!</button>
+  </form>
 </div>
