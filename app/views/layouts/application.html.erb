@@ -4,31 +4,42 @@
   <title>DungeonLootGames</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% if request.ssl? %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% else %> 
+    <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% end %>
+  
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <div id="container">
-      <header>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
         <h1><%= link_to "Dungeon Loot Games", root_path %></h1>
-      </header>
-  </div>
-  
-  <nav>
-    <ul>
-      <% @categories.each do |category| %>
-        <li><%= link_to category.name, category_path(category) %></li>
-      <% end %>
-    </ul>
-  </nav>
-  
-  <h2>Product Search</h2>
+      </div>
+      <div class="col-xs-6 text-right">
+        <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+      </div>
+    </div>   
+    <nav>
+      <ul>
+        <% @categories.each do |category| %>
+          <li><%= link_to category.name, category_path(category) %></li>
+        <% end %>
+      </ul>
+    </nav>
+    
+    <h2>Product Search</h2>
 
-  <%= form_tag search_results_path do %>
-    <%= text_field_tag :keywords %>  
-    <%= collection_select :post, :category_id, @categories, :id, :name, prompt: "Please select a category" %>  
-    <%= submit_tag 'Search' %>
-  <% end %>
+    <%= form_tag search_results_path do %>
+      <%= text_field_tag :keywords %>  
+      <%= collection_select :post, :category_id, @categories, :id, :name, prompt: "Please select a category" %>  
+      <%= submit_tag 'Search' %>
+    <% end %>
+  </div>
 
 <%= yield %>
 
