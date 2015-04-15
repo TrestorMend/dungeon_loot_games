@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
   
   def category
     @categories = Category.all
+    @category = Category.find(params[:id]);
     @products = Product.where("category_id == " + params[:id].to_s)
+    @order_item = current_order.order_items.new
   end  
 end

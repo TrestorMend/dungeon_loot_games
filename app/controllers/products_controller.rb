@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   end
   
   def search_results
+    @order_item = current_order.order_items.new
     if params[:post]["category_id"] == ""
       @products = Product.where("name LIKE ?", "%#{params[:keywords]}%")    
     else

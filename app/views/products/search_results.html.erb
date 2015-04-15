@@ -1,11 +1,17 @@
-<h2>Search Results</h2>
+<h3 class="text-center">Search Results</h3>
 
 <% if @products.empty? %>
   <p>
     Sorry your search for '<%= params[:keywords] %>' returned no results.
   </p>
 <% else %>
-  <%= render @products %>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <% @products.each do |product| %>
+        <%= render "product_row", product: product, order_item: @order_item %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
 
 
