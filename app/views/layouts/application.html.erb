@@ -15,35 +15,48 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6">
-        <h1><%= link_to "Dungeon Loot Games", root_path %></h1>
-      </div>
-      <div class="col-xs-6 text-right">
-        <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
-      </div>
-    </div>   
-    <nav>
-      <ul>
-        <% @categories.each do |category| %>
-          <li><%= link_to category.name, category_path(category) %></li>
-        <% end %>
-      </ul>
-    </nav>
-    
-    <div id="search">
-      <h2>Product Search</h2>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1><%= link_to "Dungeon Loot Games", root_path %></h1>
+        </div>
+        <div class="col-xs-6 text-right">
+          <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+        </div>
+      </div>   
+      <nav>
+        <ul>
+          <% @categories.each do |category| %>
+            <li><%= link_to category.name, category_path(category) %></li>
+          <% end %>
+          <li><a href="/order">Order By</a></li>
+          <li><a href="/new">New</a></li>
+          <li><a href="/recent">Recent</a></li>
+        </ul>
+      </nav>
+  </header>
   
-      <%= form_tag search_results_path do %>
-        <%= text_field_tag :keywords %>  
-        <%= collection_select :post, :category_id, @categories, :id, :name, prompt: "Please select a category" %>  
-        <%= submit_tag 'Search' %>
+  <section id="search_section">
+      <div id="search">
+        <h2>Product Search</h2>
+    
+        <%= form_tag search_results_path do %>
+          <%= text_field_tag :keywords %>  
+          <%= collection_select :post, :category_id, @categories, :id, :name, prompt: "Please select a category" %>  
+          <%= submit_tag 'Search' %>
+        <% end %>
+      </div>
+      <% if flash[:notice] %>
+        <p><%= flash[:notice] %></p>
       <% end %>
     </div>
-  </div>
+  </section>
 
 <%= yield %>
 
 </body>
+<footer>
+  <p>Copyright Marcelo Silva Productions Lmtd.</p>
+</footer>
 </html>

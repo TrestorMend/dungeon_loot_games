@@ -17,6 +17,29 @@ class ProductsController < ApplicationController
     else
       @products = Product.where("name LIKE ?", "%#{params[:keywords]}%").where("category_id == #{params[:post]["category_id"]}")
     end
+    if (@products.empty?)
+      flash[:notice] = "The search results returned empty"
+      redirect_to root_path
+    end
+    
+    @categories = Category.all
+  end
+  
+  def order
+    @order_item = current_order.order_items.new
+    @products = Product.order(:price)
+    @categories = Category.all
+  end
+  
+  def new
+    @order_item = current_order.order_items.new
+    @products = Product.order(:created_at).limit(5);
+    @categories = Category.all
+  end
+  
+  def recent
+    @order_item = current_order.order_items.new
+    @products = Product.order(:updated_at).limit(5);
     @categories = Category.all
   end
 end

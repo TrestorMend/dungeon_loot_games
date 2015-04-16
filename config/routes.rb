@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   get '/pages/:title' => 'page#show', as: 'page'
   match 'search_results' => 'products#search_results',
         :as => 'search_results', :via => :post
+  get '/order' => 'products#order'
+  get '/new' => 'products#new'
+  get '/recent' => 'products#recent'
 end

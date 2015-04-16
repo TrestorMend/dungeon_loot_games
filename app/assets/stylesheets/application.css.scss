@@ -14,45 +14,52 @@
  *= require_self
  */
 
+$width: 250px;
  body{
  	width: 100%;
  	padding: 25px;
  	border: 1px solid #000;
  	margin: 0px auto;
  	font-family: Verdana;
+
+	 h1{
+	 	text-align: center;
+	 	display: block;
+	 }
+
+	 .product{
+	 	display: inline-block;
+	 	width: $width;
+	 }
+
+	 .productshow img{
+	 	margin: 0px auto;
+	 	display: block;
+	 }
+
+	 a:visited, a{
+	 	text-decoration: none;
+	 	color: #000;
+	 }
+
+	 nav ul li{
+	 	font-size: 24px;
+	 	display: inline-block;
+	 	margin-right: 20px;
+	 	line-height: 80px;
+
+	 	li:first-of-type{
+	 		margin-left: 200px;
+	 	}
+	 }
+
+	 nav ul li:first-of-type{
+	 	margin-left: 200px;
+	 }
+
+	 #search{
+	 	margin-bottom: 40px;
+	 }
  }
 
- h1{
- 	text-align: center;
- 	display: block;
- }
-
- .product{
- 	display: inline-block;
- 	width: 250px;
- }
-
- .productshow img{
- 	margin: 0px auto;
- 	display: block;
- }
-
- a:visited, a{
- 	text-decoration: none;
- 	color: #000;
- }
-
- nav ul li{
- 	font-size: 24px;
- 	display: inline-block;
- 	margin-right: 20px;
- 	line-height: 80px;
- }
-
- nav ul li:first-of-type{
- 	margin-left: 400px;
- }
-
- #search{
- 	margin-bottom: 40px;
- }
+ 
