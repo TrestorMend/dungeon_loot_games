@@ -51,4 +51,8 @@
 
  nav ul li:first-of-type{
  	margin-left: 400px;
- };
+ }
+
+ #search{
+ 	margin-bottom: 40px;
+ }
