@@ -63,14 +63,15 @@ class ClientsController < InheritedResources::Base
     end
     @categories = Category.all
   end
-  
-  private
-    def set_client
-      @client = Client.find(params[:id])
-    end
-    
-    def client_params
-      params.require(:client).permit(:first_name, :last_name, :address, :email, :phone, :province_id)
-    end
-end
 
+  private
+
+  def set_client
+    @client = Client.find(params[:id])
+  end
+
+  def client_params
+    params.require(:client).permit(:first_name, :last_name,
+                                   :address, :email, :phone, :province_id)
+  end
+end

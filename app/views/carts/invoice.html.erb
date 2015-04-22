@@ -3,6 +3,6 @@
 <p>Name: <%= @customer.first_name %> <%= @customer.last_name %></p>
 <p>Address: <%= @customer.address%></p>
 <p>Province: <%= @customer.province.name%></p>
-<p>Subtotal: <%= @order.subtotal %></p>
-<p>Taxes: <%= @order.tax %></p>
-<p>Grand Total: <%= @order.total %></p>
+<p>Subtotal: <%= number_to_currency @order.subtotal %></p>
+<p>Taxes: <%= number_to_currency @order.tax %></p>
+<p>Grand Total: <%= number_to_currency @order.total %></p>
