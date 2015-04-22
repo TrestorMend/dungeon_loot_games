@@ -1,6 +1,8 @@
 <div class="checkout">
   <% if(@customer.nil?) %>
-    <% redirect_to new_client_path %>
+    <script type="text/javascript">
+      window.location.href="/clients/new"  
+    </script>
   <% else %>
     <% session['client'] = @customer.id %>
     <script type="text/javascript">
