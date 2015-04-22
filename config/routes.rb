@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   get '/order' => 'products#order'
   get '/new' => 'products#new'
   get '/recent' => 'products#recent'
+  match '/checkout' => 'carts#checkout', :as => 'checkout', :via => :post
+  resources :clients
+  get '/invoice' => 'carts#invoice'
 end

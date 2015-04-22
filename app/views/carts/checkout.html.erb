@@ -1,0 +1,10 @@
+<div class="checkout">
+  <% if(@customer.nil?) %>
+    <% redirect_to new_client_path %>
+  <% else %>
+    <% session['client'] = @customer.id %>
+    <script type="text/javascript">
+      window.location.href="/invoice"  
+    </script>
+  <% end %>
+</div>

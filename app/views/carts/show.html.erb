@@ -1,3 +1,9 @@
 <div class="shopping-cart">
   <%= render "shopping_cart" %>
+  <% unless(@order_items.nil?) %>
+    <%= form_tag ('/checkout')%>
+    <%= label_tag 'E-Mail' %>
+    <%= text_field_tag 'email' %>
+    <%= submit_tag 'Checkout' %>
+  <% end %>
 </div>
